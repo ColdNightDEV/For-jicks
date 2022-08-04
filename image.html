@@ -1,0 +1,242 @@
+<head>
+    <title>Vestige</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+</head>
+
+
+<header class="header-area">
+    <!-- site-navbar start -->
+    <div class="navbar-area">
+      <div class="container">
+        <nav class="site-navbar">
+          <!-- site logo -->
+          <a href="#home" class="site-logo">
+            <img src="images/logo.png" alt="" class="logo">
+          </a>
+  
+          <!-- site menu/nav -->
+          <ul>
+            <li><a href="#">home</a></li>
+            <li><a href="#">about</a></li>
+            <button class="nav-toggler1">
+                <span></span>
+            </button>
+          </ul>
+  
+          <!-- nav-toggler for mobile version only -->
+          <button class="nav-toggler">
+            <span></span>
+          </button>
+        </nav>
+      </div>
+    </div><!-- navbar-area end -->
+  </header>
+<div class="appContainer">
+    
+
+        <!-- The hamburgar Button -->
+        <!-- <div class="HamburgerBtn">
+            <span></span>
+        </div> -->
+        <!-- The mobile version of the navbar -->
+        <!-- <div class="MobileMenu">
+            <a href="#home">
+                <img src="images/twitter.png" alt="">
+                Join Our Twitter
+            </a>
+            <a href="#about">
+                <img src="images/discord.png" alt="">
+                Join Our Discord
+            </a>
+            <a href="#services">
+                Follow Our Instagram
+            </a>
+            <a href="#contact">
+                <button>Outervese Vessels</button>
+            </a>
+        </div> -->
+    </div>
+
+
+    <!-- We are adding the hero section -->
+    <div class="bodyImage"></div>
+
+    <!-- We want to add the metaverse section in -->
+    <div class="Metaverse">
+        <!-- <div class="main">
+            <img src="images/metaverse.png" alt="">
+        </div> -->
+    </div>
+
+</div>
+<div id="services">
+    <div id="secondSection"></div>
+        <div class="serviceContainer">
+            <div class="scroll-div">
+                <h1>ABOUT US:</h1>
+                <p>VESTIGE STUDIOS IS A CREATOR-LED ORGANIZATION IN THE WEB3 WORLD.</p>
+                <p>OUR GOAL IS TO BRING THE VIRTUAL WORLD TO LIFE THROUGH</p>
+                <p>OUR INTEGRATED DESIGNS BASED IN THE FASCINATING WORLD OF THE METAVERSE</p>
+                <p>WE USE NFTs, AR TECHNOLOGY, AND VR TECHNOLOGY TO BRING TO YOU THE BEST</p>
+                <p>VIRTUAL EXPERIENCE. YOU'LL HAVE ACCESS TO ALL YOUR DIGITAL AMENITIES IN</p>
+                <p>A WORLD FULL OF ENDLESS POSSIBILITIES NO MATTER WHERE YOU ARE. THIS</p>
+                <p>TECHNOLOGY IS AIMED TO PROVIDE ACCESS TO UNIQUE ASSETS LIKE VIRTUAL HOMES</p>
+                <p>AND MAKE THEM ACCESSIBLE FROM WHEREVER YOU ARE</p>
+            </div>
+        </div>
+</div>
+
+<!-- The room section  -->
+
+<div class="ContactSection" id="contact">
+    <div class="fullpagecontainer3">
+        <section id="home" class="sectionw">
+          <div class="homeWrapper">
+            <div class="homeSlider homesections">
+              <img src="images/room_edit.png" alt="" class="roomImg">
+            </div>
+            <div class="homeSliderReveal homesections"></div>
+          </div>
+            </section>
+      </div>
+</div>
+
+
+<!-- The Join Us section -->
+
+<div class="joinContainer">
+    <div class="JoinUsDiv">
+        <img class="JoinUsImg" src="Images/join.png" alt="" id='images' >
+    </div>
+    <div class="FlexDiv"> 
+        <div class="WorkWithDiv">
+            <img class="WorkWithImg" src="Images/work.png" alt="" id='images' >
+        </div>
+
+        <div>
+            <img class="PartnerWithImg" src="Images/partner.png" alt="" id='images' >
+        </div>
+    </div>
+    <div>
+        <img class="LogoImg" src="Images/logo.png" alt="" id='images' >
+    </div>
+</div>
+
+
+<!-- Footer -->
+<div class="FOOTER">
+    <!-- Left Text -->
+    <div class="leftText">
+        Vestige Studios
+    </div>
+    <!-- Right Text -->
+    <div class="rightText">
+        <a href="https://twitter.com/">
+            <img src="Images/twitter.png" alt="Twitter" />
+          </a>
+          <!-- &nbsp; -->
+          <a href="mailto:?subject=Email From Your Website">
+            <img src="Images/discord.png" alt="Gmail" />
+          </a>
+    </div>
+</div>
+
+
+<!-- Scripts for the about us scroll to text-->
+<script>
+    gsap.registerPlugin(ScrollTrigger)
+        const scrollDivs = gsap.utils.toArray(".scroll-div");
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".serviceContainer",
+            pin: true,
+            pinSpacing: true,
+            scrub: 1,
+            // markers: true
+          }
+        });
+
+        scrollDivs.forEach((div, i) => {
+          tl.from(div, {
+            autoAlpha: 0,
+            y: 60,
+          });
+          // just get the <p> elements inside this <div>
+          let p = gsap.utils.toArray("p", div);
+          tl.from(p, {
+            autoAlpha: 0,
+            y: 60,
+            stagger: 0.2,
+          });
+          tl.to(gsap.utils.toArray("h1", div).concat(p), {
+            autoAlpha: 0,
+            y: -60,
+            stagger: 0.2,
+            ease: "power1.in"
+          });
+        });
+</script>
+
+<!-- Scripts for the room -->
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    ScrollTrigger.defaults({
+    // Defaults are used by all ScrollTriggers
+    toggleActions: "restart pause reverse reset", // Scoll effect Forward, Leave, Back, Back Leave
+    markers: false, // Easaly remove markers for production.
+
+    });
+
+    const timelineHeader = gsap.timeline({
+    scrollTrigger: {
+        id: "ZOOM", // Custom label to the marker
+        trigger: "#home", // What element triggers the scroll
+        scrub: true, // Add a small delay of scrolling and animation. `true` is direct
+        start: "top top", // Start at top of Trigger and at the top of the viewport
+        end: "bottom bottom", // The element is 500px hight and end 50px from the top of the viewport
+        pin: true,
+        pinSpacing: true // Pin the element true or false
+    } });
+
+
+    timelineHeader.
+    to(".homeSlider", {
+    scale: 10 },
+    "sameTime")
+</script>
+
+<script>
+    // define all UI variable
+const navToggler = document.querySelector('.nav-toggler');
+const navMenu = document.querySelector('.site-navbar ul');
+const navLinks = document.querySelectorAll('.site-navbar a');
+
+// load all event listners
+allEventListners();
+
+// functions of all event listners
+function allEventListners() {
+  // toggler icon click event
+  navToggler.addEventListener('click', togglerClick);
+  // nav links click event
+  navLinks.forEach( elem => elem.addEventListener('click', navLinkClick));
+}
+
+// togglerClick function
+function togglerClick() {
+  navToggler.classList.toggle('toggler-open');
+  navMenu.classList.toggle('open');
+}
+
+// navLinkClick function
+function navLinkClick() {
+  if(navMenu.classList.contains('open')) {
+    navToggler.click();
+  }
+}
+</script>
+
