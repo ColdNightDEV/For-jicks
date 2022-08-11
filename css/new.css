@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section {
+    width: 100%;
+    height: 100vh;
+    /* background-position: center; */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.HeroImage {
+   display: flex;
+}
+
+.hero {
+    display: flex;
+}
+
+@media (min-width: 600px) {
+    .HeroImage {
+        background-image: url("../Images/pc.png");
+    }
+    .Hero {
+        background-image: url("../Images/metaverse.png");
+    }
+}
+
+@media (min-width: 240px) and (max-width: 599px) {
+    .HeroImage {
+        background-image: url("../Images/mobile.png");
+    }
+    .Hero {
+        background-image: url("../Images/metaverse.png");
+    }
+}
